@@ -93,4 +93,13 @@ class ReimplementEnumerable
       index += 1
     end
   end
+
+  def include?(argument)
+    @collection.each do |element|
+      if element == argument
+        return true
+      end
+    end
+    return false
+  end
 end
