@@ -59,4 +59,17 @@ class ReimplementEnumerable
       index += 1
     end
   end
+
+  def drop(argument)
+    count = 0
+    array = []
+
+    @collection.each do |element|
+      if count >= argument
+        array << element
+      end
+      count += 1
+    end
+    array
+  end
 end
