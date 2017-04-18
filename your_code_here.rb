@@ -16,6 +16,16 @@ class ReimplementEnumerable
     return result
   end
 
-  # The rest of the code for all the enumerables
-  # you must write go here
+  def all?
+    new_all = []
+
+    @collection.each do |element|
+      all = yield(element)
+      if all
+        new_all << element
+      end
+    end
+
+    new_all == @collection
+  end
 end
