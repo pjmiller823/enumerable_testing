@@ -102,4 +102,13 @@ class ReimplementEnumerable
     end
     return false
   end
+
+  def map
+    mapped_array = []
+
+    @collection.each do |element|
+      mapped_array << yield(element)
+    end
+    mapped_array
+  end
 end
