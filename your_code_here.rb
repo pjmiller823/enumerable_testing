@@ -40,4 +40,26 @@ class ReimplementEnumerable
     end
     count
   end
+
+  def find
+    @collection.each do |element|
+      new_find = yield(element)
+      if new_find
+        return element
+      end
+    end
+    return nil
+  end
+
+  def each_with_index
+    object_results = []
+    index_results = []
+    count = -1
+
+    @collection.each do |element|
+      object_results << element
+      index_results << count += 1
+    end
+    return object_results, index_results
+  end
 end
