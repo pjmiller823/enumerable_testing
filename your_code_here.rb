@@ -20,8 +20,7 @@ class ReimplementEnumerable
     new_all = []
 
     @collection.each do |element|
-      all = yield(element)
-      if all
+      if yield(element)
         new_all << element
       end
     end
@@ -35,7 +34,7 @@ class ReimplementEnumerable
     @collection.each do |element|
       new_count = yield(element)
       if new_count
-        count +=1
+        count += 1
       end
     end
     count
@@ -71,5 +70,27 @@ class ReimplementEnumerable
       count += 1
     end
     array
+  end
+
+  def drop_while
+    array = []
+
+    @collection.each do |element|
+      unless yield(element)
+        array << element
+      end
+    end
+    array
+  end
+
+  def find_index
+    index = 0
+
+    @collection.each do |element|
+      if yield(element)
+        return index
+      end
+      index += 1
+    end
   end
 end

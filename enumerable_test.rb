@@ -86,14 +86,12 @@ describe "Enumerable" do
   end
 
   it "implements find index correctly when there is a match" do
-    skip
     results = @reimplements_enumerable.find_index { |book| book.year == 1851 }
 
     assert_equal 2, results
   end
 
   it "implements find index correctly when there is no match" do
-    skip
     results = @reimplements_enumerable.find_index { |book| book.year == 2017 }
 
     assert_nil @reimplements_enumerable.find { |book| book.year == 2017 }
