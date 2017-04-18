@@ -26,28 +26,24 @@ describe "Enumerable" do
   end
 
   it "implements all? correctly when the results are false" do
-    skip
     results = @reimplements_enumerable.all? { |book| book.year == 1800 }
 
     assert_equal false, results
   end
 
   it "implements count correctly" do
-    skip
     results = @reimplements_enumerable.count { |book| book.page_count > 300 }
 
     assert_equal 3, results
   end
 
   it "implements count correctly" do
-    skip
     results = @reimplements_enumerable.count { |book| book.page_count == 1225 }
 
     assert_equal 1, results
   end
 
   it "implements count correctly" do
-    skip
     results = @reimplements_enumerable.count { |book| book.page_count > 3000 }
 
     assert_equal 0, results

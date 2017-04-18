@@ -28,4 +28,16 @@ class ReimplementEnumerable
 
     new_all == @collection
   end
+
+  def count
+    count = 0
+
+    @collection.each do |element|
+      new_count = yield(element)
+      if new_count
+        count +=1
+      end
+    end
+    count
+  end
 end
