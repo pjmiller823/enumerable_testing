@@ -1,3 +1,5 @@
+require 'irb'
+
 class ReimplementEnumerable
   def initialize(collection)
     @collection = collection
@@ -59,12 +61,12 @@ class ReimplementEnumerable
     end
   end
 
-  def drop(argument)
+  def drop(item)
     count = 0
     array = []
 
     @collection.each do |element|
-      if count >= argument
+      if count >= item
         array << element
       end
       count += 1
@@ -73,14 +75,42 @@ class ReimplementEnumerable
   end
 
   def drop_while
-    array = []
+    new_array = []
+    found_a_false = false
 
     @collection.each do |element|
-      if yield(element)
-        array << element
+      if !found_a_false && !yield(element)
+        found_a_false = true
+      end
+
+      if found_a_false
+        new_array << element
       end
     end
-    array
+
+    return new_array
+  end
+
+  def drop_while
+    index = 0
+
+    @collection.each do |element|
+      unless yield(element)
+        return @collection[index..-1]
+      end
+
+      index += 1
+    end
+
+    return []
+  end
+
+  def drop_while
+    each_with_index do |element, index|
+      unless yield(element)
+        return @collection[index..-1]
+      end
+    end
   end
 
   def find_index
@@ -94,9 +124,9 @@ class ReimplementEnumerable
     end
   end
 
-  def include?(argument)
+  def include?(item)
     @collection.each do |element|
-      if element == argument
+      if element == item
         return true
       end
     end
@@ -146,5 +176,12 @@ class ReimplementEnumerable
     end
 
     return result
+  end
+
+  def reverse_each
+    new_reversed_array =
+    @collection.each do |element|
+
+    end
   end
 end

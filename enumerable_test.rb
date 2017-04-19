@@ -79,7 +79,6 @@ describe "Enumerable" do
   end
 
   it "implements drop_while correctly" do
-    skip
     results = @reimplements_enumerable.drop_while { |book| book.year < 1900 }
 
     assert_equal [@h2g2, @moby_dick, @pride], results
@@ -137,11 +136,15 @@ describe "Enumerable" do
   end
 
   # reverse_each
-  it "implements reverse_each correctly" do
-    reversed_books [@pride, @moby_dick, @h2g2, @war_and_peace]
 
-    assert_equal reversed_books, @reimplements_enumerable.reverse_each { |book| book.reverse_each}
+  it "implements reverse_each correctly" do
+    actual_reversed_books = []
+
+    @reimplements_enumerable.reverse_each { |book| actual_reversed_books << book }
+
+    assert_equal [@pride, @moby_dick, @h2g2, @war_and_peace], actual_reversed_books
   end
+
   # partition
   # one?
   # none?
