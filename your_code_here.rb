@@ -193,13 +193,4 @@ class ReimplementEnumerable
     @collection
   end
 
-  # def pizzaparty
-  #   names = %w{bruno patrick val justin}
-  #   index = names.size - 1
-  #
-  #   while index >= 0
-  #     p names[index]
-  #     index -= 1
-  #   end
-  # end
 end
