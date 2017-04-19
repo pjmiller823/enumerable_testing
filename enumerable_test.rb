@@ -125,7 +125,6 @@ describe "Enumerable" do
   end
 
   it "implements min_by correctly" do
-    skip
     results = @pride
 
     assert_equal results, @reimplements_enumerable.min_by { |book| book.year }

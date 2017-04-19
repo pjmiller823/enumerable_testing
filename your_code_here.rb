@@ -76,7 +76,7 @@ class ReimplementEnumerable
     array = []
 
     @collection.each do |element|
-      unless yield(element)
+      if yield(element)
         array << element
       end
     end
@@ -118,6 +118,18 @@ class ReimplementEnumerable
       if new_element.nil?
         new_element = element
       elsif yield(element) > yield(new_element)
+        new_element = element
+      end
+    end
+    new_element
+  end
+
+  def min_by
+    new_element = nil
+    @collection.each do |element|
+      if new_element.nil?
+        new_element = element
+      elsif yield(element) < yield(new_element)
         new_element = element
       end
     end
