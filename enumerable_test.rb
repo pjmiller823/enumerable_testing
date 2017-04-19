@@ -142,10 +142,16 @@ describe "Enumerable" do
 
     @reimplements_enumerable.reverse_each { |book| actual_reversed_books << book }
 
-    assert_equal [@pride, @moby_dick, @h2g2, @war_and_peace], actual_reversed_books
+    assert_equal @books.reverse, actual_reversed_books
   end
 
   # partition
+  it "implements partion correctly" do
+
+  end
   # one?
   # none?
+
+  # each_slice
+  # each_cons
 end

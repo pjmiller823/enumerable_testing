@@ -179,9 +179,27 @@ class ReimplementEnumerable
   end
 
   def reverse_each
-    new_reversed_array =
-    @collection.each do |element|
+    # Start the index at the end of the array
+    index = @collection.size - 1
 
+    # While we haven't run off the START of the array
+    while index >= 0
+      # Yield the element at that index
+      yield @collection[index]
+      # Back up the index by one
+      index -= 1
     end
+
+    @collection
   end
+
+  # def pizzaparty
+  #   names = %w{bruno patrick val justin}
+  #   index = names.size - 1
+  #
+  #   while index >= 0
+  #     p names[index]
+  #     index -= 1
+  #   end
+  # end
 end
