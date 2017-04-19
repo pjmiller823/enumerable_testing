@@ -135,4 +135,16 @@ class ReimplementEnumerable
     end
     new_element
   end
+
+  def reject
+    result = []
+
+    @collection.each do |element|
+      unless yield(element)
+        result << element
+      end
+    end
+
+    return result
+  end
 end

@@ -131,7 +131,6 @@ describe "Enumerable" do
   end
 
   it "implements reject correctly" do
-    skip
     short_books = [@h2g2, @pride]
 
     assert_equal short_books, @reimplements_enumerable.reject { |book| book.page_count > 500 }
