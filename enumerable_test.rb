@@ -147,7 +147,10 @@ describe "Enumerable" do
 
   # partition
   it "implements partion correctly" do
+    old_books = [@moby_dick, @pride]
+    new_books = [@war_and_peace, @h2g2]
 
+    assert_equal [old_books, new_books], @reimplements_enumerable.partition { |book| book.year > 1860}
   end
   # one?
   # none?

@@ -193,4 +193,19 @@ class ReimplementEnumerable
     @collection
   end
 
+  def partition
+    true_array = []
+    false_array = []
+    returned_array = []
+
+    @collection.each do |element|
+      if yield(element)
+        true_array << element
+      else
+        false_array << element
+      end
+    end
+    returned_array = [true_array, false_array]
+  end
+
 end
