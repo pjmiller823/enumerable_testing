@@ -137,6 +137,11 @@ describe "Enumerable" do
   end
 
   # reverse_each
+  it "implements reverse_each correctly" do
+    reversed_books [@pride, @moby_dick, @h2g2, @war_and_peace]
+
+    assert_equal reversed_books, @reimplements_enumerable.reverse_each { |book| book.reverse_each}
+  end
   # partition
   # one?
   # none?
